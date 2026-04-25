@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stats</title>
+</head>
+<body>
+  <h1>Stats</h1>
+  <div id="stats"></div>
+
+  <script>
+    async function load() {
+      const res = await fetch("/api/stats");
+      const data = await res.json();
+
+      document.getElementById("stats").innerHTML =
+        `Products: ${data.count} <br> Instance: ${data.instance}`;
+    }
+
+    load();
+  </script>
+</body>
+</html>
